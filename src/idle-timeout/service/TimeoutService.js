@@ -13,19 +13,16 @@ TimeoutService.prototype.resetTimeout = function () {
 };
 
 TimeoutService.prototype.handleTimeout = function (setModalIsOpen) {
-    console.log('handle timeout logged')
     if (this.timeLeft < idleWarningPromptTime) {
         this.subtractNumberOfSeconds(1)
         setModalIsOpen(true);
-    } else if (this.timeLeft < 1) {
-        this.logout();
+        if (this.timeLeft < 1) this.logout();
     } else {
         this.subtractNumberOfSeconds(1);
     }
 };
 
 TimeoutService.prototype.logout = function () {
-    // actions required to logout and redirect
     window.location.href = '/login';
 };
 
