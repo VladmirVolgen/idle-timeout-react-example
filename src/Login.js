@@ -6,19 +6,21 @@ const Login = ({ setIsAuthenticated }) => {
 
     const [redirect, setRedirect] = useState(false);
 
-  const handleSubmit = () => {
-    setIsAuthenticated(true);
+  const handleSubmit = (e) => {
+    e.preventDefault();
     setRedirect(true);
+    setIsAuthenticated(true);
+    
   };
 
   if (redirect) {
+      console.log('hitting here')
       return (<Redirect to='/' />);
   }
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Card>
-        <Card.Header>Please enter your user details</Card.Header>
+      <Card style={{width:'20rem', margin:'auto', marginTop:'2rem'}}>
         <Card.Body>
           <Form.Group>
             <Form.Label>Username</Form.Label>

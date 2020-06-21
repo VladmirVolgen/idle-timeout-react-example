@@ -31,7 +31,7 @@ const IdleTimeout = ({ children, setIsAuthenticated }) => {
 
     return (
         <Fragment>
-            <div id='idle-timeout-wrapper' onClick={handleEvents} onKeyDown={handleEvents} >
+            <div style={{width: "100%", height: "100%"}} id='idle-timeout-wrapper' onClick={handleEvents} onKeyDown={handleEvents} >
                 {children}
             </div>
             <Modal show={modalIsOpen}>

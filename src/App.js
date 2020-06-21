@@ -6,33 +6,30 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from "./Login";
 
 function App() {
-
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const renderApp = () => {
-    if (!isAuthenticated) return (<Login setIsAuthenticated={setIsAuthenticated} />);
+    if (!isAuthenticated)
+      return <Login setIsAuthenticated={setIsAuthenticated} />;
     return (
       <Router>
-      <Route exact path="/">
-        <IdleTimeout setIsAuthenticated={setIsAuthenticated}>
-          <div className="App">
-            <h1>Authenticated app home</h1>
+        <Route exact path="/">
+          <IdleTimeout setIsAuthenticated={setIsAuthenticated}>
+            <div className="App">
+              <h1>Authenticated app home</h1>
             </div>
-        </IdleTimeout>
-      </Route>
-      <Route exact path="/another-route">
-        <div><h1>This is another route</h1></div>
-      </Route>
-    </Router>
+          </IdleTimeout>
+        </Route>
+        <Route exact path="/another-route">
+          <div>
+            <h1>This is another route</h1>
+          </div>
+        </Route>
+      </Router>
     );
   };
 
-  return (
-    <Fragment>
-      {renderApp()}
-    </Fragment>
-    
-  );
+  return <Fragment>{renderApp()}</Fragment>;
 }
 
 export default App;
