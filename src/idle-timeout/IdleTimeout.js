@@ -4,7 +4,7 @@ import TimeoutService from './service/TimeoutService';
 
 const timeoutService = new TimeoutService();
 
-const IdleTimeout = ({ children }) => {
+const IdleTimeout = ({ children, setIsAuthenticated }) => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -25,7 +25,8 @@ const IdleTimeout = ({ children }) => {
     };
 
     const handleClickNo = () => {
-        timeoutService.logout();
+        setIsAuthenticated(false);
+        //timeoutService.logout();
     };
 
     return (
